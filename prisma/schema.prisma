@@ -10,6 +10,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+generator next_crud {
+  provider = "npx prisma-next-crud-generator"
+}
+
+generator seeder {
+  provider = "prisma-generator-fake-data"
+  output   = "faker/seeder.ts"
+}
+
+generator markdown {
+  provider = "prisma-markdown"
+  output   = "./docs/ERD.md"
+  title    = "Inventory System"
+}
 
 model Account {
   id                String  @id @default(cuid())
@@ -40,13 +54,14 @@ model Session {
 
 model User {
   id            String        @id @default(cuid())
-  name          String?
-  email         String?       @unique
+  name          String
+  email         String        @unique
+  password      String
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
-  UserHasRole   UserHasRole[]
+  roles         UserHasRole[]
 }
 
 model VerificationToken {
@@ -57,27 +72,34 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+model PasswordResetToken {
+  email   String   @id
+  token   String   @unique
+  expires DateTime
+}
+
 model Role {
-  id                String              @id @default(cuid())
-  name              String
-  RoleHasPermission RoleHasPermission[]
-  UserHasRole       UserHasRole[]
+  id          String              @id @default(cuid())
+  name        String
+  permissions RoleHasPermission[]
+  users       UserHasRole[]
 }
 
 model Permission {
-  id                String              @id @default(cuid())
-  description       String
-  rules             String
-  RoleHasPermission RoleHasPermission[]
+  id      String              @id @default(cuid())
+  action  String
+  subject String
+  roles   RoleHasPermission[]
 }
 
 model RoleHasPermission {
-  id            String @id @default(cuid())
+  id            String     @id @default(cuid())
   role_id       String
   permission_id String
+  role          Role       @relation(fields: [role_id], references: [id])
+  permission    Permission @relation(fields: [permission_id], references: [id])
 
-  role       Role       @relation(fields: [role_id], references: [id], onDelete: Cascade)
-  permission Permission @relation(fields: [permission_id], references: [id], onDelete: Cascade)
+  @@unique([role_id, permission_id])
 }
 
 model UserHasRole {
@@ -87,6 +109,8 @@ model UserHasRole {
 
   role Role @relation(fields: [role_id], references: [id], onDelete: Cascade)
   user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([role_id, user_id])
 }
 
 model Product {
