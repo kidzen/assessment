@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/Button";
 import { Select } from "@/components/ui/Select";
 
 export default async function RoleCreatePage() {
-  const RoleHasPermissions = await prisma.roleHasPermission.findMany();
+  const permissions = await prisma.permission.findMany();
 
-  const UserHasRoles = await prisma.userHasRole.findMany();
+  const users = await prisma.user.findMany();
 
   return (
     <>
@@ -28,27 +28,27 @@ export default async function RoleCreatePage() {
         </div>
         <div>
           <Select
-            name="RoleHasPermission"
+            name="permissions"
             className="mt-1 mb-2"
-            label="Role Has Permission"
-            placeholder="Select Role Has Permission"
+            label="Permission"
+            placeholder="Select Permission"
             isMulti
-            options={RoleHasPermissions.map((RoleHasPermission) => ({
-              label: RoleHasPermission.id,
-              value: RoleHasPermission.id,
+            options={permissions.map((permission) => ({
+              label: `${permission.action} on ${permission.subject}`,
+              value: permission.id,
             }))}
           />
         </div>
         <div>
           <Select
-            name="UserHasRole"
+            name="users"
             className="mt-1 mb-2"
-            label="User Has Role"
-            placeholder="Select User Has Role"
+            label="User"
+            placeholder="Select User"
             isMulti
-            options={UserHasRoles.map((UserHasRole) => ({
-              label: UserHasRole.id,
-              value: UserHasRole.id,
+            options={users.map((user) => ({
+              label: user.name,
+              value: user.id,
             }))}
           />
         </div>
