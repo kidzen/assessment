@@ -16,7 +16,7 @@ export default async function UserEditPage({
     include: {
       accounts: true,
       sessions: true,
-      UserHasRole: true,
+      roles: true,
     },
   });
 
@@ -81,7 +81,7 @@ export default async function UserEditPage({
             label="Email Verified"
             name="emailVerified"
             className="mb-2"
-            defaultValue={new Date(user.emailVerified)
+            defaultValue={new Date(user.emailVerified as Date)
               .toISOString()
               .slice(0, 16)}
           />
@@ -92,7 +92,7 @@ export default async function UserEditPage({
             label="Image"
             name="image"
             className="mb-2"
-            defaultValue={user.image}
+            defaultValue={user.image as string}
           />
         </div>
         <div>
@@ -135,9 +135,9 @@ export default async function UserEditPage({
             className="mt-1 mb-2"
             label="User Has Role"
             placeholder="Select User Has Role"
-            defaultValue={user.UserHasRole.map((UserHasRole) => ({
-              label: UserHasRole.id,
-              value: UserHasRole.id,
+            defaultValue={user.roles.map((role) => ({
+              label: role.id,
+              value: role.id,
             }))}
             isMulti
             options={UserHasRoles.map((UserHasRole) => ({

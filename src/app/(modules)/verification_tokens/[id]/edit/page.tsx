@@ -41,7 +41,7 @@ export default async function VerificationTokenEditPage({
             label="Identifier"
             name="identifier"
             className="mb-2"
-            defaultValue={verificationToken.identifier}
+            defaultValue={verificationToken.tokenentifier}
             required
           />
         </div>
@@ -68,7 +68,7 @@ export default async function VerificationTokenEditPage({
           />
         </div>
 
-        <input type="hidden" name="id" value={verificationToken.id} />
+        <input type="hidden" name="id" value={verificationToken.token} />
 
         <footer className="flex items-center justify-between mt-2">
           <Link href="/verification_tokens" className="underline text-gray-500">

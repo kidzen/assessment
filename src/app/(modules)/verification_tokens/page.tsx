@@ -53,9 +53,9 @@ export default async function VerificationTokensListPage() {
             )}
 
             {verificationTokens.map((verificationToken) => (
-              <tr key={verificationToken.id}>
+              <tr key={verificationToken.token}>
                 <td className="px-4 py-2 text-gray-700">
-                  {verificationToken.identifier}
+                  {verificationToken.tokenentifier}
                 </td>
                 <td className="px-4 py-2 text-gray-700">
                   {verificationToken.token}
@@ -68,7 +68,7 @@ export default async function VerificationTokensListPage() {
                   <div className="flex gap-x-1 h-full justify-center">
                     <Button
                       as="a"
-                      href={`/verification_tokens/${verificationToken.id}`}
+                      href={`/verification_tokens/${verificationToken.token}`}
                       variant="ghost"
                       size="sm"
                       className="font-medium"
@@ -77,7 +77,7 @@ export default async function VerificationTokensListPage() {
                     </Button>
                     <Button
                       as="a"
-                      href={`/verification_tokens/${verificationToken.id}/edit`}
+                      href={`/verification_tokens/${verificationToken.token}/edit`}
                       variant="ghost"
                       size="sm"
                       className="font-medium"
@@ -91,7 +91,7 @@ export default async function VerificationTokensListPage() {
                       <input
                         type="hidden"
                         name="id"
-                        value={verificationToken.id}
+                        value={verificationToken.token}
                       />
                       <Button
                         type="submit"

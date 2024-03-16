@@ -8,7 +8,7 @@ export async function createUpload(formData: FormData) {
     path: formData.get("path") as string,
     type: formData.get("type") as string,
     mime_type: formData.get("mime_type") as string,
-    file_size: formData.get("file_size") as number,
+    file_size: Number(formData.get("file_size")) as number,
     Product:
       formData.get("Product") != ""
         ? {
@@ -33,7 +33,7 @@ export async function editUpload(formData: FormData) {
       path: formData.get("path") as string,
       type: formData.get("type") as string,
       mime_type: formData.get("mime_type") as string,
-      file_size: formData.get("file_size") as number,
+      file_size: Number(formData.get("file_size")) as number,
       Product:
         formData.get("Product") != ""
           ? {

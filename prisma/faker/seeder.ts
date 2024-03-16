@@ -1,4 +1,3 @@
-import {  } from 'C:\Users\kidzen\Data\server\www\test\next\myapp2\node_modules\.pnpm\@prisma+client@5.11.0_prisma@5.11.0\node_modules\@prisma\client';
 import { faker } from '@faker-js/faker';
 import Decimal from 'decimal.js';
 

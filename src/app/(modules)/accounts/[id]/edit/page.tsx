@@ -75,7 +75,7 @@ export default async function AccountEditPage({
             label="Refresh_token"
             name="refresh_token"
             className="mb-2"
-            defaultValue={account.refresh_token}
+            defaultValue={account.refresh_token as string}
           />
         </div>
         <div>
@@ -84,7 +84,7 @@ export default async function AccountEditPage({
             label="Access_token"
             name="access_token"
             className="mb-2"
-            defaultValue={account.access_token}
+            defaultValue={account.access_token as string}
           />
         </div>
         <div>
@@ -93,7 +93,7 @@ export default async function AccountEditPage({
             label="Expires_at"
             name="expires_at"
             className="mb-2"
-            defaultValue={account.expires_at}
+            defaultValue={account.expires_at as number}
           />
         </div>
         <div>
@@ -102,7 +102,7 @@ export default async function AccountEditPage({
             label="Token_type"
             name="token_type"
             className="mb-2"
-            defaultValue={account.token_type}
+            defaultValue={account.token_type as string}
           />
         </div>
         <div>
@@ -111,7 +111,7 @@ export default async function AccountEditPage({
             label="Scope"
             name="scope"
             className="mb-2"
-            defaultValue={account.scope}
+            defaultValue={account.scope as string}
           />
         </div>
         <div>
@@ -120,7 +120,7 @@ export default async function AccountEditPage({
             label="Id_token"
             name="id_token"
             className="mb-2"
-            defaultValue={account.id_token}
+            defaultValue={account.id_token as string}
           />
         </div>
         <div>
@@ -129,7 +129,7 @@ export default async function AccountEditPage({
             label="Session_state"
             name="session_state"
             className="mb-2"
-            defaultValue={account.session_state}
+            defaultValue={account.session_state as string}
           />
         </div>
         <div>

@@ -55,7 +55,7 @@ export default async function UploadEditPage({
             label="Type"
             name="type"
             className="mb-2"
-            defaultValue={upload.type}
+            defaultValue={upload.type as string}
           />
         </div>
         <div>
@@ -64,7 +64,7 @@ export default async function UploadEditPage({
             label="Mime_type"
             name="mime_type"
             className="mb-2"
-            defaultValue={upload.mime_type}
+            defaultValue={upload.mime_type as string}
           />
         </div>
         <div>
@@ -73,7 +73,7 @@ export default async function UploadEditPage({
             label="File_size"
             name="file_size"
             className="mb-2"
-            defaultValue={upload.file_size}
+            defaultValue={Number(upload.file_size)}
           />
         </div>
         <div>

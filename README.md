@@ -1,8 +1,8 @@
 # Inventory Management System
 
-## View Demo
+<!-- ## View Demo
 
-[Demo](http://asd.com)
+[Demo](http://asd.com) -->
 
 ## Running the application
 
@@ -26,7 +26,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 2. prisma-next-crud-generator to generate CRUD
 3. fakerJS  
 4. prisma-generator-fake-data to generate composable seeder
-5. prisma-markdown to generate ERD. View ERD [here](https://asd.com)
+5. prisma-markdown to generate ERD. View ERD [here](https://github.com/kidzen/assessment/blob/main/docs/ERD.md)
 6. NextAuth for authentication
 
 ## Credit to

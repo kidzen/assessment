@@ -14,7 +14,7 @@ export default async function PermissionEditPage({
   const permission = await prisma.permission.findUnique({
     where: { id: params.id },
     include: {
-      RoleHasPermission: true,
+      roles: true,
     },
   });
 
@@ -65,12 +65,10 @@ export default async function PermissionEditPage({
             className="mt-1 mb-2"
             label="Role Has Permission"
             placeholder="Select Role Has Permission"
-            defaultValue={permission.RoleHasPermission.map(
-              (RoleHasPermission) => ({
-                label: RoleHasPermission.id,
-                value: RoleHasPermission.id,
-              }),
-            )}
+            defaultValue={permission.roles.map((role) => ({
+              label: role.id,
+              value: role.id,
+            }))}
             isMulti
             options={RoleHasPermissions.map((RoleHasPermission) => ({
               label: RoleHasPermission.id,

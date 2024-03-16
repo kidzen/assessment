@@ -11,7 +11,7 @@ export default async function PasswordResetTokenEditPage({
   params: { id: string };
 }) {
   const passwordResetToken = await prisma.passwordResetToken.findUnique({
-    where: { id: params.id },
+    where: { token: params.id },
   });
 
   if (!passwordResetToken) {
@@ -68,7 +68,7 @@ export default async function PasswordResetTokenEditPage({
           />
         </div>
 
-        <input type="hidden" name="id" value={passwordResetToken.id} />
+        <input type="hidden" name="id" value={passwordResetToken.token} />
 
         <footer className="flex items-center justify-between mt-2">
           <Link

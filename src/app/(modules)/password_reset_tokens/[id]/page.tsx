@@ -5,10 +5,10 @@ import { Heading } from "@/components/ui/Heading";
 export default async function PasswordResetTokenPage({
   params,
 }: {
-  params: { id: string };
+  params: { token: string };
 }) {
   const passwordResetToken = await prisma.passwordResetToken.findUnique({
-    where: { id: params.id },
+    where: { token: params.token },
   });
 
   if (!passwordResetToken) {
@@ -29,9 +29,7 @@ export default async function PasswordResetTokenPage({
   return (
     <>
       <header className="mt-2 mb-4">
-        <Heading>
-          Password Reset Token #{passwordResetToken.id.substring(0, 6)}...
-        </Heading>
+        <Heading>Password Reset Token #{passwordResetToken.email}...</Heading>
       </header>
 
       <section className="relative overflow-hidden rounded-lg border border-gray-200 p-4 sm:p-6 lg:p-8 max-w-xl mb-4">

@@ -13,12 +13,12 @@ export async function createVerificationToken(formData: FormData) {
   const verificationToken = await prisma.verificationToken.create({ data });
 
   if (verificationToken) {
-    redirect(`/verification_tokens/${verificationToken.id}`);
+    redirect(`/verification_tokens/${verificationToken.token}`);
   }
 }
 
 export async function editVerificationToken(formData: FormData) {
-  const id = formData.get("id") as string;
+  const token = formData.get("token") as string;
   try {
     const data = {
       identifier: formData.get("identifier") as string,
@@ -27,7 +27,7 @@ export async function editVerificationToken(formData: FormData) {
     };
 
     await prisma.verificationToken.update({
-      where: { id },
+      where: { token },
       data,
     });
   } catch (error) {
@@ -35,14 +35,14 @@ export async function editVerificationToken(formData: FormData) {
     return { message: error };
   }
 
-  redirect(`/verification_tokens/${id}`);
+  redirect(`/verification_tokens/${token}`);
 }
 
 export async function deleteVerificationToken(formData: FormData) {
-  const id = formData.get("id") as string;
+  const token = formData.get("token") as string;
   try {
     await prisma.verificationToken.delete({
-      where: { id },
+      where: { token },
     });
   } catch (error) {
     console.error("DELETE ACTION ERROR:", error);

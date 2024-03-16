@@ -1,16 +1,16 @@
 import { prisma } from "@/lib/prisma";
 import { PrismaClientValidationError } from "@prisma/client/runtime/library";
 import { useRouter } from "next/navigation";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest } from "next/server";
 
 interface HTTPError {
   code: string;
   message: string;
 }
-export async function GET(request: NextApiRequest) {
+async function handler(request: NextRequest) {
   try {
-    const { id } = request.query;
-    const inventory = await prisma.product.findFirstOrThrow({
+    const id = request.nextUrl.searchParams.get("id");
+    const inventory = await prisma.product.findUnique({
       where: { id: id as string },
     });
     return Response.json({ data: inventory }, { status: 200 });
@@ -20,3 +20,4 @@ export async function GET(request: NextApiRequest) {
     return Response.json({ error: "Internal server error" }, { status: 500 });
   }
 }
+export { handler as GET };

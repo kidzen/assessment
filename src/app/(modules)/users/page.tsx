@@ -60,7 +60,7 @@ export default async function UsersListPage() {
                 <td className="px-4 py-2 text-gray-700">{user.email}</td>
                 <td className="px-4 py-2 text-gray-700">{user.password}</td>
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                  {new Date(user.emailVerified).toLocaleString()}
+                  {new Date(user.emailVerified as Date).toLocaleString()}
                 </td>
                 <td className="px-4 py-2 text-gray-700">{user.image}</td>
 

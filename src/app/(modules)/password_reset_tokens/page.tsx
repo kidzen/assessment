@@ -53,7 +53,7 @@ export default async function PasswordResetTokensListPage() {
             )}
 
             {passwordResetTokens.map((passwordResetToken) => (
-              <tr key={passwordResetToken.id}>
+              <tr key={passwordResetToken.token}>
                 <td className="px-4 py-2 text-gray-700">
                   {passwordResetToken.email}
                 </td>
@@ -68,7 +68,7 @@ export default async function PasswordResetTokensListPage() {
                   <div className="flex gap-x-1 h-full justify-center">
                     <Button
                       as="a"
-                      href={`/password_reset_tokens/${passwordResetToken.id}`}
+                      href={`/password_reset_tokens/${passwordResetToken.token}`}
                       variant="ghost"
                       size="sm"
                       className="font-medium"
@@ -77,7 +77,7 @@ export default async function PasswordResetTokensListPage() {
                     </Button>
                     <Button
                       as="a"
-                      href={`/password_reset_tokens/${passwordResetToken.id}/edit`}
+                      href={`/password_reset_tokens/${passwordResetToken.token}/edit`}
                       variant="ghost"
                       size="sm"
                       className="font-medium"
@@ -91,7 +91,7 @@ export default async function PasswordResetTokensListPage() {
                       <input
                         type="hidden"
                         name="id"
-                        value={passwordResetToken.id}
+                        value={passwordResetToken.token}
                       />
                       <Button
                         type="submit"

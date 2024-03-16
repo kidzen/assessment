@@ -39,7 +39,7 @@ export default async function UserPage({ params }: { params: { id: string } }) {
         </p>
         <p className="text-gray-700 mb-4 last:mb-0">
           <strong className="text-gray-900">Email Verified:</strong>{" "}
-          {new Date(user.emailVerified).toLocaleString()}
+          {new Date(user.emailVerified as Date).toLocaleString()}
         </p>
         <p className="text-gray-700 mb-4 last:mb-0">
           <strong className="text-gray-900">Image:</strong> {user.image}

@@ -30,7 +30,7 @@ export default async function VerificationTokenPage({
     <>
       <header className="mt-2 mb-4">
         <Heading>
-          Verification Token #{verificationToken.id.substring(0, 6)}...
+          Verification Token #{verificationToken.token.substring(0, 6)}...
         </Heading>
       </header>
 
@@ -38,7 +38,7 @@ export default async function VerificationTokenPage({
         <span className="absolute inset-x-0 bottom-0 h-21 bg-gradient-to-r from-indigo-300 via-indigo-500 to-indigo-600"></span>
         <p className="text-gray-700 mb-4 last:mb-0">
           <strong className="text-gray-900">Identifier:</strong>{" "}
-          {verificationToken.identifier}
+          {verificationToken.tokenentifier}
         </p>
         <p className="text-gray-700 mb-4 last:mb-0">
           <strong className="text-gray-900">Token:</strong>{" "}

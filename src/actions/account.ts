@@ -16,7 +16,7 @@ export async function createAccount(formData: FormData) {
     scope: z.string(),
     id_token: z.string(),
     session_state: z.string(),
-    user: z.object({}),
+    user: z.object({}).optional(),
   });
 
   const data = schema.parse({
