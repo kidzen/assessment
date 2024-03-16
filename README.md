@@ -1,8 +1,8 @@
 # Inventory Management System
 
-<!-- ## View Demo
+## View Demo
 
-[Demo](http://asd.com) -->
+[Demo](https://assessment-zahrin.vercel.app)
 
 ## Running the application
 
@@ -18,7 +18,7 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](https://localhost:3000) with your browser to see the result.
 
 ## Package Used
 
