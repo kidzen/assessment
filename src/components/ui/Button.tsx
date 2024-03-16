@@ -27,7 +27,7 @@ export const Button = React.forwardRef<
       className,
       ...props
     },
-    ref
+    ref,
   ) => {
     const variants = {
       primary:
@@ -53,7 +53,7 @@ export const Button = React.forwardRef<
             variants[variant],
             sizes[size],
             "duration-150 rounded-lg active:shadow-lg disabled:cursor-not-allowed inline-flex items-center",
-            className
+            className,
           )}
           {...(props as AnchorProps)}
           ref={ref as React.Ref<HTMLAnchorElement>}
@@ -72,6 +72,6 @@ export const Button = React.forwardRef<
         ref={ref as React.Ref<HTMLButtonElement>}
       />
     );
-  }
+  },
 );
 Button.displayName = "Button";

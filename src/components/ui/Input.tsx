@@ -31,14 +31,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             type !== "radio" && type !== "checkbox"
               ? "block w-full rounded-md"
               : "inline-block rounded-full",
-            className
+            className,
           )}
           {...props}
           ref={ref}
         />
       </>
     );
-  }
+  },
 );
 
 Input.displayName = "Input";

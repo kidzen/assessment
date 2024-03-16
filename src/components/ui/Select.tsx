@@ -7,7 +7,7 @@ export const Select = <
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>,
 >(
-  props: Props<Option, IsMulti, Group> & { label: string }
+  props: Props<Option, IsMulti, Group> & { label: string },
 ) => {
   return (
     <>

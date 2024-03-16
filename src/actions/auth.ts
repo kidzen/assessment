@@ -1,6 +1,6 @@
 export async function signIn(
   method: "credentials",
-  credentials: Record<"email" | "password", string> | undefined
+  credentials: Record<"email" | "password", string> | undefined,
 ) {
   switch (method) {
     case "credentials":
@@ -12,7 +12,7 @@ export async function signIn(
 }
 
 export async function signInUsingCredentials(
-  credentials: Record<"email" | "password", string> | undefined
+  credentials: Record<"email" | "password", string> | undefined,
 ) {
   const res = await fetch("/api/auth/login", {
     method: "POST",
@@ -25,7 +25,7 @@ export async function signInUsingCredentials(
 
 export async function register(
   method: "credentials",
-  credentials: { name: string; email: string; password: string }
+  credentials: { name: string; email: string; password: string },
 ) {
   console.log(method);
   console.log(credentials);
@@ -35,7 +35,7 @@ export interface AuthError extends Error {
   type: "CredentialsSignin" | "CredentialsRegister";
 }
 
-import NextAuth from "next-auth"
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 export const authOptions = {
   providers: [
@@ -52,4 +52,4 @@ export const authOptions = {
   ],
 };
 
-export default NextAuth(authOptions)
+export default NextAuth(authOptions);

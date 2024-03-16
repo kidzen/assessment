@@ -9,7 +9,7 @@ export async function createUser(formData: FormData) {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
     emailVerified: new Date(
-      formData.get("emailVerified") as string
+      formData.get("emailVerified") as string,
     ).toISOString(),
     image: formData.get("image") as string,
     accounts:
@@ -53,7 +53,7 @@ export async function editUser(formData: FormData) {
       email: formData.get("email") as string,
       password: formData.get("password") as string,
       emailVerified: new Date(
-        formData.get("emailVerified") as string
+        formData.get("emailVerified") as string,
       ).toISOString(),
       image: formData.get("image") as string,
       accounts:

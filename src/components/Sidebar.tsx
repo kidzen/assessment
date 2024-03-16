@@ -21,7 +21,7 @@ export const Sidebar = () => {
             "absolute top-2 text-indigo-700 transition-all duration-500",
             isSidebarOpen
               ? "left-[10.5rem] md:left-[12.5rem] lg:left-[16.5rem]"
-              : "left-2"
+              : "left-2",
           )}
           onClick={toggleSidebar}
         >
@@ -35,7 +35,7 @@ export const Sidebar = () => {
         <div
           className={twMerge(
             "fixed top-0 left-0 z-20 h-screen w-40 md:w-48 lg:w-64 px-4 py-6 border-e bg-indigo-50 transition duration-500 transform -translate-x-full shadow-lg",
-            isSidebarOpen ? "translate-x-0" : ""
+            isSidebarOpen ? "translate-x-0" : "",
           )}
         >
           <Link href="/">

@@ -1,13 +1,7 @@
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from "next";
 
 const page = () => {
-    return (
-        <div>
-            Forgot Password
-        </div>
-    );
-}
+  return <div>Forgot Password</div>;
+};
 
-
-
-export default page
+export default page;
