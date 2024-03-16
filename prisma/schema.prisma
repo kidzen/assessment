@@ -25,12 +25,6 @@ generator markdown {
   title    = "Inventory System"
 }
 
-generator zod {
-  provider          = "prisma-zod-generator"
-  output            = "./../generated/zod-schemas"
-  isGenerateSelect  = true
-  isGenerateInclude = true
-}
 
 model Account {
   id                String  @id @default(cuid())

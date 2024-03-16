@@ -33,19 +33,7 @@ export default async function PermissionCreatePage() {
             required
           />
         </div>
-        <div>
-          <Select
-            name="RoleHasPermission"
-            className="mt-1 mb-2"
-            label="Role Has Permission"
-            placeholder="Select Role Has Permission"
-            isMulti
-            options={RoleHasPermissions.map((RoleHasPermission) => ({
-              label: RoleHasPermission.id,
-              value: RoleHasPermission.id,
-            }))}
-          />
-        </div>
+        
 
         <footer className="flex items-center justify-between mt-2">
           <Link href="/permissions" className="underline text-gray-500">

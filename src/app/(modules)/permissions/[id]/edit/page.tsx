@@ -59,23 +59,6 @@ export default async function PermissionEditPage({
             required
           />
         </div>
-        <div>
-          <Select
-            name="RoleHasPermission"
-            className="mt-1 mb-2"
-            label="Role Has Permission"
-            placeholder="Select Role Has Permission"
-            defaultValue={permission.roles.map((role) => ({
-              label: role.id,
-              value: role.id,
-            }))}
-            isMulti
-            options={RoleHasPermissions.map((RoleHasPermission) => ({
-              label: RoleHasPermission.id,
-              value: RoleHasPermission.id,
-            }))}
-          />
-        </div>
 
         <input type="hidden" name="id" value={permission.id} />
 
