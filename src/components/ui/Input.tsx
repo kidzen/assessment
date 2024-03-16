@@ -1,10 +1,9 @@
-
-import React from 'react'
-import { twMerge } from 'tailwind-merge'
+import React from "react";
+import { twMerge } from "tailwind-merge";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string
-  name: string
+  label: string;
+  name: string;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -28,14 +27,18 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           name={name}
           required={required}
           className={twMerge(
-            'mt-1 border-gray-200 shadow-sm sm:text-sm',
-            type !== 'radio' && type !== 'checkbox' ? 'block w-full rounded-md' : 'inline-block rounded-full',
-            className,
+            "mt-1 border-gray-200 shadow-sm sm:text-sm",
+            type !== "radio" && type !== "checkbox"
+              ? "block w-full rounded-md"
+              : "inline-block rounded-full",
+            className
           )}
           {...props}
           ref={ref}
         />
       </>
-    )
-  },
-)
+    );
+  }
+);
+
+Input.displayName = "Input";

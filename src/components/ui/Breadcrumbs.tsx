@@ -1,9 +1,8 @@
-
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 interface BreadcrumbsProps extends React.HTMLAttributes<HTMLDivElement> {
-  elements: { name: string; href: string }[]
+  elements: { name: string; href: string }[];
 }
 
 export const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>(
@@ -13,9 +12,7 @@ export const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>(
         <ol className="flex items-center gap-1 text-sm text-gray-600">
           {elements.map((elem, index) => {
             if (index === elements.length - 1) {
-              return (
-                <li key={elem.name}>{elem.name}</li>
-              )
+              return <li key={elem.name}>{elem.name}</li>;
             }
 
             return (
@@ -32,13 +29,14 @@ export const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>(
                   <ChevronRightIcon className="w-5 h-5" />
                 </li>
               </React.Fragment>
-            )
+            );
           })}
         </ol>
       </nav>
-    )
-  },
-)
+    );
+  }
+);
+Breadcrumbs.displayName = "Breadcrumbs";
 
 const ChevronRightIcon = ({ className }: { className: string }) => {
   return (
@@ -54,5 +52,5 @@ const ChevronRightIcon = ({ className }: { className: string }) => {
         clipRule="evenodd"
       />
     </svg>
-  )
-}
+  );
+};
