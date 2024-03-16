@@ -21,8 +21,15 @@ generator seeder {
 
 generator markdown {
   provider = "prisma-markdown"
-  output   = "./docs/ERD.md"
+  output   = "../docs/ERD.md"
   title    = "Inventory System"
+}
+
+generator zod {
+  provider          = "prisma-zod-generator"
+  output            = "./../generated/zod-schemas"
+  isGenerateSelect  = true
+  isGenerateInclude = true
 }
 
 model Account {

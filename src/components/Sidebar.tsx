@@ -12,6 +12,52 @@ export const Sidebar = () => {
     setIsSidebarOpen((prev) => !prev);
   };
 
+  const sidebar = [
+    // {
+    //   path: "/accounts",
+    //   name: "accounts",
+    // },
+    // {
+    //   path: "/sessions",
+    //   name: "sessions",
+    // },
+    {
+      path: "/users",
+      name: "users",
+    },
+    // {
+    //   path: "/verification_tokens",
+    //   name: "verification_tokens",
+    // },
+    // {
+    //   path: "/password_reset_tokens",
+    //   name: "password_reset_tokens",
+    // },
+    {
+      path: "/roles",
+      name: "roles",
+    },
+    {
+      path: "/permissions",
+      name: "permissions",
+    },
+    // {
+    //   path: "/role_has_permissions",
+    //   name: "role_has_permissions",
+    // },
+    // {
+    //   path: "/user_has_roles",
+    //   name: "user_has_roles",
+    // },
+    {
+      path: "/products",
+      name: "products",
+    },
+    {
+      path: "/uploads",
+      name: "uploads",
+    },
+  ];
   return (
     <>
       <aside className="flex lg:hidden">
@@ -21,7 +67,7 @@ export const Sidebar = () => {
             "absolute top-2 text-indigo-700 transition-all duration-500",
             isSidebarOpen
               ? "left-[10.5rem] md:left-[12.5rem] lg:left-[16.5rem]"
-              : "left-2",
+              : "left-2"
           )}
           onClick={toggleSidebar}
         >
@@ -35,7 +81,7 @@ export const Sidebar = () => {
         <div
           className={twMerge(
             "fixed top-0 left-0 z-20 h-screen w-40 md:w-48 lg:w-64 px-4 py-6 border-e bg-indigo-50 transition duration-500 transform -translate-x-full shadow-lg",
-            isSidebarOpen ? "translate-x-0" : "",
+            isSidebarOpen ? "translate-x-0" : ""
           )}
         >
           <Link href="/">
@@ -45,104 +91,18 @@ export const Sidebar = () => {
           </Link>
 
           <ul className="mt-6 space-y-1">
-            <li>
-              <Link
-                href="/accounts"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Accounts
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/sessions"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Sessions
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/users"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Users
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/verification_tokens"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                VerificationTokens
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/password_reset_tokens"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                PasswordResetTokens
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/roles"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Roles
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/permissions"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Permissions
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/role_has_permissions"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                RoleHasPermissions
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/user_has_roles"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                UserHasRoles
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/products"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Products
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/uploads"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Uploads
-              </Link>
-            </li>
+            {sidebar.map((items, index) => {
+              return (
+                <li key={index}>
+                  <Link
+                    href={items.path}
+                    className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
+                  >
+                    {items.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </aside>
@@ -156,104 +116,18 @@ export const Sidebar = () => {
           </Link>
 
           <ul className="mt-6 space-y-1">
-            <li>
-              <Link
-                href="/accounts"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Accounts
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/sessions"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Sessions
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/users"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Users
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/verification_tokens"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                VerificationTokens
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/password_reset_tokens"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                PasswordResetTokens
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/roles"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Roles
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/permissions"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Permissions
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/role_has_permissions"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                RoleHasPermissions
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/user_has_roles"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                UserHasRoles
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/products"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Products
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/uploads"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
-              >
-                Uploads
-              </Link>
-            </li>
+            {sidebar.map((items, index) => {
+              return (
+                <li key={index}>
+                  <Link
+                    href={items.path}
+                    className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-indigo-100 hover:text-gray-700"
+                  >
+                    {items.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </aside>

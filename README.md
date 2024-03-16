@@ -1,6 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Inventory Management System
 
-## Getting Started
+## View Demo
+
+[Demo](http://asd.com)
+
+## Running the application
 
 First, run the development server:
 
@@ -16,21 +20,22 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Package Used
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Prisma as database adapter
+2. prisma-next-crud-generator to generate CRUD
+3. fakerJS  
+4. prisma-generator-fake-data to generate composable seeder
+5. prisma-markdown to generate ERD. View ERD [here](https://asd.com)
+6. NextAuth for authentication
 
-## Learn More
+## Credit to
 
-To learn more about Next.js, take a look at the following resources:
+1. NextAuth for authentication module database design
+2. Laravel Spatie Permission for authorization database design
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Package in development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. NextCrud which compatible with NextJS 14+
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    Current NextCrud package does not compatible with NextJS 13+ due to changes in app router convention

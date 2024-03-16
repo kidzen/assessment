@@ -47,9 +47,7 @@ export async function editProduct(formData: FormData) {
 export async function deleteProduct(formData: FormData) {
   const id = formData.get("id") as string;
   try {
-    await prisma.product.delete({
-      where: { id },
-    });
+    await prisma.product.delete({ where: { id } });
   } catch (error) {
     console.error("DELETE ACTION ERROR:", error);
     return { message: "Unable to delete product" };

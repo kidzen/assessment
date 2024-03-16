@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/Button";
 
 export default async function AccountsListPage() {
   const accounts = await prisma.account.findMany();
-
   const breadcrumbs = [
     { name: "Dashboard", href: "/" },
     { name: "Accounts", href: "#" },

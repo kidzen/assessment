@@ -13,12 +13,12 @@ export async function createPasswordResetToken(formData: FormData) {
   const passwordResetToken = await prisma.passwordResetToken.create({ data });
 
   if (passwordResetToken) {
-    redirect(`/password_reset_tokens/${passwordResetToken.id}`);
+    redirect(`/password_reset_tokens/${passwordResetToken.token}`);
   }
 }
 
 export async function editPasswordResetToken(formData: FormData) {
-  const id = formData.get("id") as string;
+  const token = formData.get("token") as string;
   try {
     const data = {
       email: formData.get("email") as string,
@@ -27,7 +27,7 @@ export async function editPasswordResetToken(formData: FormData) {
     };
 
     await prisma.passwordResetToken.update({
-      where: { id },
+      where: { token },
       data,
     });
   } catch (error) {
@@ -35,14 +35,14 @@ export async function editPasswordResetToken(formData: FormData) {
     return { message: error };
   }
 
-  redirect(`/password_reset_tokens/${id}`);
+  redirect(`/password_reset_tokens/${token}`);
 }
 
 export async function deletePasswordResetToken(formData: FormData) {
-  const id = formData.get("id") as string;
+  const token = formData.get("token") as string;
   try {
     await prisma.passwordResetToken.delete({
-      where: { id },
+      where: { token },
     });
   } catch (error) {
     console.error("DELETE ACTION ERROR:", error);

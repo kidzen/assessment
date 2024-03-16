@@ -17,14 +17,14 @@ export default function AuthLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex`}>
+      <body className={`${inter.className}`}>
         <main className="m-2">{children}</main>
-        <Link
+        {/* <Link
           className="px-5 py-1 border focus:ring-2 ring-inset hover:ring-2 rounded-lg"
           href="/"
         >
           Back
-        </Link>
+        </Link> */}
       </body>
     </html>
   );

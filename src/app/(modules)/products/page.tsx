@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 
 export default async function ProductsListPage() {
   const products = await prisma.product.findMany();
-
+  
   const breadcrumbs = [
     { name: "Dashboard", href: "/" },
     { name: "Products", href: "#" },
